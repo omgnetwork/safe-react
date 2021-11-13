@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { BigNumber } from 'bignumber.js'
+import { BigNumber as BigNumberEthers } from 'ethers'
 import { EthAdapterTransaction } from '@gnosis.pm/safe-core-sdk/dist/src/ethereumLibs/EthAdapter'
 
 import { getSDKWeb3Adapter, getWeb3, web3ReadOnly } from 'src/logic/wallets/getWeb3'
@@ -16,9 +17,21 @@ const FIXED_GAS_FEE = '2.5'
 
 const fetchGasPrice = async (gasPriceOracle: GasPriceOracle): Promise<string> => {
   const { url, gasParameter, gweiFactor } = gasPriceOracle
-  const { data: response } = await axios.get(url)
-  const data = response.data || response.result || response // Sometimes the data comes with a data parameter
-  return new BigNumber(data[gasParameter]).multipliedBy(gweiFactor).toString()
+  if (gasParameter === undefined || gweiFactor === undefined) {
+    const rpcRequest = {
+      jsonrpc: '2.0',
+      method: 'eth_gasPrice',
+      params: [],
+      id: 1,
+    }
+    const headers = { headers: { 'Content-Type': 'application/json' } }
+    const { data: response } = await axios.post(url, rpcRequest, headers)
+    return BigNumberEthers.from(response.result).toString()
+  } else {
+    const { data: response } = await axios.get(url)
+    const data = response.data || response.result || response // Sometimes the data comes with a data parameter
+    return new BigNumber(data[gasParameter]).multipliedBy(gweiFactor).toString()
+  }
 }
 
 export const calculateGasPrice = async (): Promise<string> => {
