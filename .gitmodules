@@ -1,0 +1,3 @@
+[submodule "boba_ops/safe-client-gateway"]
+	path = boba_ops/safe-client-gateway
+	url = https://github.com/gnosis/safe-client-gateway.git

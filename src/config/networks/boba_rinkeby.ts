@@ -24,7 +24,7 @@ const baseConfig: EnvironmentSettings = {
   networkExplorerApiUrl: 'https://blockexplorer.rinkeby.boba.network/api',
 }
 
-const arbitrum: NetworkConfig = {
+const boba_rinkeby: NetworkConfig = {
   environment: {
     dev: {
       ...baseConfig,
@@ -69,4 +69,4 @@ const arbitrum: NetworkConfig = {
   disabledFeatures: [FEATURES.DOMAIN_LOOKUP, FEATURES.SPENDING_LIMIT],
 }
 
-export default arbitrum
+export default boba_rinkeby
