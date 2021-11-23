@@ -9,8 +9,8 @@ import {
 } from 'src/config/networks/network.d'
 
 const baseConfig: EnvironmentSettings = {
-  clientGatewayUrl: 'http://127.0.0.1:8000/v1',
-  txServiceUrl: 'http://127.0.0.1:8001/api/v1',
+  clientGatewayUrl: 'http://127.0.0.1:8002/v1',
+  txServiceUrl: 'http://127.0.0.1:8000/api/v1',
   safeUrl: 'http://localhost:3000/app',
   gasPriceOracles: [
     {
