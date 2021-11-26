@@ -40,15 +40,16 @@ jobs:
         run: docker compose build
 
       - name: Tag
-        working-directory: ./ops
+        working-directory: ./boba_ops
         run: |
+          docker images
           for i in $(docker images --format "{{.Repository}}:{{.Tag}}" | grep bobanetwork); do
             docker image tag "$i" bobanetwork/$(echo $i | awk -F'/' '{print $2}' | awk -F':' '{print $1}'):latest
           done
           docker images
 
       - name: Push
-        working-directory: ./ops
+        working-directory: ./boba_ops
         run: |
           for i in $(docker images --format "{{.Repository}}:{{.Tag}}" | grep bobanetwork); do
             echo "$1"
