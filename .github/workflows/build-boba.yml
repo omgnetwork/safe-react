@@ -33,7 +33,7 @@ jobs:
 
       - name: Get services
         working-directory: ./boba_ops
-        run: git submodule sync --recursive
+        run: git submodule sync --recursive && git submodule update --recursive --init
 
       - name: Build the services
         working-directory: ./boba_ops
