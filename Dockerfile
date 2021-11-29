@@ -8,9 +8,14 @@ COPY package.json ./
 
 COPY yarn.lock ./
 
-RUN yarn install
+ADD src/ ./src
+ADD config/ ./config
+ADD patches/ ./patches
+ADD scripts/ ./scripts
+ADD public/ ./public
+ADD docs/ ./docs
 
-COPY . .
+RUN yarn install
 
 EXPOSE 3000
 

@@ -62,6 +62,7 @@ services:
       - "8888:8888"
     volumes:
       - nginx-shared:/nginx
+    restart: always
     command: ./docker/web/run_web.sh
 
   worker: &worker
@@ -74,6 +75,7 @@ services:
     depends_on:
       - db
       - redis
+    restart: always
     command: ./docker/web/celery/worker/run.sh
 
   scheduler:
@@ -108,3 +110,17 @@ services:
       - envs/.env_safe_config_service
     depends_on:
       - db
+
+  safe-react:
+      image: bobanetwork/safe-react
+      build:
+        context: ../
+        dockerfile: ./Dockerfile
+      env_file:
+        - envs/.env_safe_react
+      volumes:
+        - /app/node_modules
+        - ../:/app
+      restart: always
+      ports:
+        - 3000:3000
