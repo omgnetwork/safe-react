@@ -56,6 +56,8 @@ export enum ETHEREUM_NETWORK {
   LOCAL = '4447',
   ARBITRUM = '42161',
   VOLTA = '73799',
+  BOBA = '288',
+  BOBA_RINKEBY = '28',
 }
 
 // Take from: https://chainid.network/shortNameMapping.json
@@ -70,6 +72,8 @@ export enum SHORT_NAME {
   LOCAL = 'local',
   ARBITRUM = 'arb1',
   VOLTA = 'vt',
+  BOBA = 'boba',
+  BOBA = 'boba_rinkeby',
 }
 
 export type NetworkSettings = {
@@ -93,10 +97,10 @@ export type GasPriceOracle = {
   url: string
   // Different gas api providers can use a different name to reflect different gas levels based on tx speed
   // For example in ethGasStation for ETHEREUM_MAINNET = safeLow | average | fast
-  gasParameter: string
+  gasParameter?: string
   // Some providers may not use the most common standard, gwei to return the gas price value
   // This is the case of Ethgasstation that returns price as gwei x 10.
-  gweiFactor: string
+  gweiFactor?: string
 }
 
 type GasPrice =
