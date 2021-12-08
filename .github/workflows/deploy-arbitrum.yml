@@ -1,4 +1,4 @@
- name: Deploy to Arbitrum network
+name: Deploy to Arbitrum network
 
 # Run on pushes to main or PRs to main
 on:
