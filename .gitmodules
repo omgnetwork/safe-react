@@ -4,3 +4,6 @@
 [submodule "boba_ops/safe-config-service"]
 	path = boba_ops/safe-config-service
 	url = https://github.com/gnosis/safe-config-service
+[submodule "boba_ops/safe-transaction-service"]
+	path = boba_ops/safe-transaction-service
+	url = https://github.com/gnosis/safe-transaction-service
