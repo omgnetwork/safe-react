@@ -12,7 +12,7 @@ const baseConfig: EnvironmentSettings = {
   //this is the frontend2backend url
   clientGatewayUrl: 'http://127.0.0.1:8002/v1',
   txServiceUrl: 'http://127.0.0.1:8000/api/v1',
-  safeUrl: 'http://gnosis-safe.rinkeby.boba:3000/app',
+  safeUrl: 'https://safe.rinkeby.boba.network/app',
   gasPriceOracles: [
     {
       url: 'https://rinkeby.boba.network/',
