@@ -10,9 +10,9 @@ import {
 
 const baseConfig: EnvironmentSettings = {
   //this is the frontend2backend url
-  clientGatewayUrl: 'http://127.0.0.1:8002/v1',
-  txServiceUrl: 'http://127.0.0.1:8000/api/v1',
-  safeUrl: 'http://gnosis-safe.mainnet.boba:3000/app',
+  clientGatewayUrl: 'https://safe-client.mainnet.boba.network/v1',
+  txServiceUrl: 'https://safe-transaction.mainnet.boba.network/api/v1',
+  safeUrl: 'https://safe.mainnet.boba.network/app',
   gasPriceOracles: [
     {
       url: 'https://mainnet.boba.network/',
@@ -45,7 +45,7 @@ const boba: NetworkConfig = {
     isTestNet: false,
     ethereumLayer: ETHEREUM_LAYER.L2,
     nativeCoin: {
-      address: '0x0000000000000000000000000000000000000000',
+      address: '0x4200000000000000000000000000000000000006',
       name: 'ETH',
       symbol: 'ETH',
       decimals: 18,
